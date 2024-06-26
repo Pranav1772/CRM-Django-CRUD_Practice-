@@ -1,0 +1,16 @@
+{% extends "main/base.html" %} {% load crispy_forms_tags %} {% block content %}
+<div class="container bg-light shadow-md p-5 form-layout">
+    <h1>Record Details</h1>
+    <hr />
+    <br />
+    {% csrf_token %} {{form|crispy}}
+    <br />
+    <br />
+    <div class="text-center">
+        <a href="{% url 'dashboard' %}" class="btn btn-outline-primary"><i class="fa-solid fa-arrow-left"></i> &nbsp;Return</a>
+        <a href="{% url 'update-record' id %}" class="btn btn-outline-warning"><i class="fa-regular fa-pen-to-square"></i> &nbsp; Update</a>
+        <a href="{% url 'delete' id %}" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i> &nbsp; Delete</a>
+    </div>
+</div>
+
+{% endblock content %}

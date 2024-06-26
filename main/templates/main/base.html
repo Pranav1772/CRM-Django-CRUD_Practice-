@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CRUD Practice Project</title>
+        <link rel="stylesheet" href="{% static "main/css/bootstrap.min.css" %}" />
+        <link rel="stylesheet" href="{% static "main/css/style.css" %}">
+
+
+        <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        {% include "main/partials/navbar.html" %}
+        <br>
+        
+        {% for message in messages %}
+
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+
+                    <p id="message-timer" class="container alert alert-success float-center text-center message-text"> 
+                        
+                        <i class="fa fa-check" aria-hidden="true"></i> &nbsp; {{message}}
+                    
+                    </p>
+
+
+                {% endif %}
+
+
+            {% endfor %}
+
+
+            <br>
+            <!-- notification -->
+            {% block content %}{% endblock content %}
+        
+        <script src="{% static "main/js/script.js" %}"></script>
+        <script src="{% static "main/js/jquery-3.7.1.min.js" %}"></script>
+        <script src="{% static "main/js/bootstrap.bundle.min.js" %}"></script>        
+    </body>
+</html>
